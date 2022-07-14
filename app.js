@@ -5,6 +5,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const date = require(__dirname + "/date.js");
 const _ = require("lodash");
+require('dotenv').config()
+
+
 
 const app = express();
 
@@ -13,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin-sharad:testsharad123@cluster0.tcgkzaf.mongodb.net/todolistDB",{useNewUrlParser: true});
+mongoose.connect(process.env.API_URL,{useNewUrlParser: true});
 // const items = ["Buy Food", "Cook Food", "Eat Food"];
 // const workItems = [];
 //Here we deleted our work item array so we can add database
